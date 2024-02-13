@@ -3,14 +3,26 @@ open = ['(','{','[']
 
 def checkSeq(sequence):
     stack = []
-    for idx, char in enumerate(sequence):
+    for char in sequence:
         if len(stack) == 0 and char in closed:
-            print('NO')
+            print('NO') # length zero char closed
             return
-        """ elif char in open and stack[-1] not in : """
-            
-         
-
+        else:
+            if char in open:
+                stack.append(char)
+                # print(stack)
+            else:
+                if closed.index(char) == open.index(stack[-1]):
+                    stack.pop(-1)
+                    # print(stack)
+                else:
+                    print('NO') # index didnt match
+                    return  
+    if len(stack) > 0:
+        print('NO') #  stack not empty
+        return
+    else:
+        print('YES')
 
 if __name__ == "__main__":
     n = int(input())
