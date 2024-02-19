@@ -2,10 +2,10 @@ n = int(input())
 while n != 0:
     if n == 1:
         print('Discarded cards:')
-        print('Remaining cards: ', 1)
-    if(n == 2):
-        print('Discarded cards: ', 2)
-        print('Remaining cards: ', 1)
+        print('Remaining cards:', 1)
+    elif(n == 2):
+        print('Discarded cards:', 2)
+        print('Remaining cards:', 1)
     elif n > 2:
         disc = []
         deck = [*range( n,0,-1)]
