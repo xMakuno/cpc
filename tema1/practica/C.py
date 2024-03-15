@@ -8,15 +8,15 @@ def parsePush(deq, word, val):
         deq.append(val)
         print(f'Pushed in right: {val}')
     else:
-        print("cagaste push")
+        print("push?")
 
 def parsePop(deq, word):
     if word == 'popLeft':
         print(f'Popped from left: {deq.popleft()}')
     elif  word == 'popRight':
-        print(f'Popped from left: {deq.pop()}')
+        print(f'Popped from right: {deq.pop()}')
     else:
-        print("cagaste pop")
+        print("pop?")
 
 if __name__ == "__main__":
     T = int(input())
@@ -38,4 +38,4 @@ if __name__ == "__main__":
                 else:
                     parsePop(dq, command[0])
             else:
-                print("cagaste command")
+                print("command?")
