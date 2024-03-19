@@ -16,7 +16,7 @@ def calculatePopSum(balls, stack, sum):
         # print(f'balls: {balls} stack: {stack} sum: {sum}')
         print(sum)
 
-if __name__ == "__main__":
+def wa():
     queries = int(input())
     stack = []
     for query in range(queries):
@@ -27,3 +27,46 @@ if __name__ == "__main__":
             balls = q[1]
             sum = 0
             calculatePopSum(balls, stack, sum)
+
+from collections import deque
+def rte(): # RTE with 20/22
+    q = int(input())
+    deq = deque([]) # deque with dictionaries inside [ {x1:k1],{x2:k2},...} ]
+    for i in range(q):
+        query = [int(x) for x in input().split(" ")]
+        if i == 0 and query[0] == 1:
+            deq.append([query[1],query[2]])
+        else:
+            if query[0] == 1: # append operation
+                if query[1] == deq[-1][0]:
+                    deq[-1][1] += query[2]
+                else:
+                    deq.append([query[1],query[2]])
+            else: # pop operation
+                
+                if len(deq) >= 1:
+                    print(popping(deq, query[1], 0))
+def popping(dq, c, sum):
+    # print(f"BEFORE dq: {dq} c: {c} sum: {sum}")
+    if dq[0][1] < c:
+        sum += dq[0][0]*dq[0][1]
+        c -= dq[0][1]
+        dq.popleft()
+        # print(f"1 AFTER dq: {dq} c: {c} sum: {sum}")
+        return popping(dq, c, sum)
+    elif dq[0][1] > c:
+        sum += dq[0][0]*c
+        dq[0][1] -= c
+        c = 0
+        # print(f"2 AFTER dq: {dq} c: {c} sum: {sum}")
+        return sum
+    else:
+        sum += dq[0][0]*c
+        dq.popleft()
+        # print(f"3 AFTER dq: {dq} c: {c} sum: {sum}")
+        return sum
+
+if __name__ == "__main__":
+    # wa()
+    # rte()
+    print(1)
