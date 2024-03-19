@@ -1,5 +1,4 @@
-def wa1():
-    # 21 out of 27 cases
+def wa1(): # RTE 21 out of 27 cases
     n, x = [int(a) for a in input().split(" ")]
     memo = { -1:[]}
     ans = []
