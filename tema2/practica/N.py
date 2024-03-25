@@ -1,14 +1,15 @@
 def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
-    n, x = map(int, input().split())
+    n, x = map(int, input().split(" "))
     memo = {}
     ans = []
-    for idx, i in enumerate(input().split()):
+    half = x // 2 
+    for idx, i in enumerate(input().split(" ")):
         i = int(i)
         if i not in memo:
             memo.update({i:[idx+1]})
         else:
             memo[i].append(idx+1)
-        if x // 2 == i and x & 1 == 0:
+        if half == i and x & 1 == 0:
             if len(memo[i]) > 1:
                 # print answer
                 ans = memo[i]
@@ -25,3 +26,4 @@ def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
 
 if __name__ == "__main__":
     TLE()
+    # attemptX()
