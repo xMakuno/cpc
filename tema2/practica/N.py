@@ -1,5 +1,5 @@
 def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
-    n, x = [int(a) for a in input().split(" ")]
+    n, x = map(int, input().split())
     memo = {}
     ans = []
     for idx, i in enumerate(input().split()):
