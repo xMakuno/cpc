@@ -1,11 +1,11 @@
-def wa1(): # RTE 21 out of 27 cases
+def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
     n, x = [int(a) for a in input().split(" ")]
-    memo = { -1:[]}
+    memo = {}
     ans = []
     for idx, i in enumerate(input().split()):
         i = int(i)
         if i not in memo:
-            memo[i] = [idx+1]
+            memo.update({i:[idx+1]})
         else:
             memo[i].append(idx+1)
         if x // 2 == i and x & 1 == 0:
@@ -24,4 +24,4 @@ def wa1(): # RTE 21 out of 27 cases
         print("IMPOSSIBLE")
 
 if __name__ == "__main__":
-    wa1()
+    TLE()
