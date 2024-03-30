@@ -5,5 +5,5 @@ if __name__ == "__main__":
         thing.append(temp)
         if temp == 0:
             break
-    for i in thing[::-1]:
-        print(i)
+    while thing:
+        print(thing.pop())
