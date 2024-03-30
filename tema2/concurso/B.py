@@ -1,3 +1,12 @@
+from bisect import bisect_left
+
+def bs2(a,x):
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    else:
+        return -1
+
 def bs(arr, x):
     low = 0
     high = len(arr) - 1
@@ -13,7 +22,6 @@ def bs(arr, x):
             return x
     return -1
 
-
 if __name__ == "__main__":
     n = input()
     s = set(map(int, input().split()))
@@ -22,6 +30,6 @@ if __name__ == "__main__":
     t.sort()
     ans = 0
     for i in s:
-        if(bs(t, i) != -1):
+        if(bs2(t, i) != -1):
             ans += 1
     print(ans)
