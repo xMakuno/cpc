@@ -19,6 +19,4 @@ if __name__ == "__main__":
             result = parseOperation(element, stack.pop(-2), stack.pop(-1))
             # print(result)
             stack.append(result)
-            
-            
     print(stack[0])
