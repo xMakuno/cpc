@@ -14,15 +14,15 @@ def solve():
             memo.append([y, 1, x])
             memo.append([x, 0, y])
     memo.sort(key=getKey)
-    # print(memo)
+    #print(memo)
     for i in range(2*n):
         # print(f'Connection:  {memo[i]}')
         if memo[i][1] == 0:
             stack.append(memo[i][0])
         else:
             # print(stack)
-            if(len(stack) != 0 and stack[-1] == memo[i][2]):
-                print(f'Stack peek: {stack[-1]}')
+            if(stack[-1] == memo[i][2]):
+                # print(f'Stack peek: {stack[-1]}')
                 stack.pop()
             else:
                 return "Yes"
