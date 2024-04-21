@@ -29,9 +29,9 @@ def wa():
             calculatePopSum(balls, stack, sum)
 
 from collections import deque
-def ac(): # RTE with 20/22
+def ac():
     q = int(input())
-    deq = deque([]) # deque with dictionaries inside [ {x1:k1},{x2:k2},...} ]
+    deq = deque([])
     while q:
         q-=1
         query = list(map(int, input().split()))
