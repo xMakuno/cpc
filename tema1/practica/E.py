@@ -31,7 +31,7 @@ def wa():
 from collections import deque
 def rte(): # RTE with 20/22
     q = int(input())
-    deq = deque([]) # deque with dictionaries inside [ {x1:k1],{x2:k2},...} ]
+    deq = deque([]) # deque with dictionaries inside [ {x1:k1},{x2:k2},...} ]
     for i in range(q):
         query = [int(x) for x in input().split(" ")]
         if i == 0 and query[0] == 1:
