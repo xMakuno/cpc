@@ -29,16 +29,17 @@ def wa():
             calculatePopSum(balls, stack, sum)
 
 from collections import deque
-def rte(): # RTE with 20/22
+def ac(): # RTE with 20/22
     q = int(input())
     deq = deque([]) # deque with dictionaries inside [ {x1:k1},{x2:k2},...} ]
-    for i in range(q):
-        query = [int(x) for x in input().split(" ")]
-        if i == 0 and query[0] == 1:
+    while q:
+        q-=1
+        query = list(map(int, input().split()))
+        if query[0] == 1:
             deq.append([query[1],query[2]])
         else:
             if query[0] == 1: # append operation
-                if query[1] == deq[-1][0]:
+                if len(deq) > 0 and query[1] == deq[-1][0]:
                     deq[-1][1] += query[2]
                 else:
                     deq.append([query[1],query[2]])
@@ -68,5 +69,4 @@ def popping(dq, c, sum):
 
 if __name__ == "__main__":
     # wa()
-    # rte()
-    print(1)
+    rte()
