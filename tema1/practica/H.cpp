@@ -3,14 +3,17 @@ using namespace std;
 int main(){
     int n, q;
     cin >> n >> q;
-    int array[n];
-    deque<int> fuck;
+    vector<int> nums(n,0);
+    vector<int> queries(q,0);
     for(int i = 0; i < n; ++i){
-        cin >> array[i];
+        cin >> nums[i];
+        // cout << nums[i] << " \n"[i == n - 1];
     }
-    long long m;
-    for(int i = 0; i < n; ++i){
+    int m, a, b;
 
+    for(int i = 0; i < q; ++i){
+        cin >> m;
     }
+
     return 0;
 }
