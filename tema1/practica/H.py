@@ -1,6 +1,6 @@
 from collections import deque 
 from copy import copy
-def solve():
+def tle():
     n, q = map(int, input().split())
     nums = deque(map(int, input().split()))
     if(q == 0):
@@ -23,5 +23,9 @@ def solve():
             # print(nums)
         print(f'{a} {b}')
     
+def solve():
+    n, q = map(int, input().split())
+    nums = deque(map(int, input().split()))
+
 if __name__ == "__main__":
     solve()
