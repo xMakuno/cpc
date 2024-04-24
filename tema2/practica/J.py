@@ -3,7 +3,7 @@ def searchInsert(nums, target):
     lo = 0
     while lo < hi:
         mid = (lo + hi + 1)//2
-        print(f'hi: {hi} lo: {lo} mid: {mid}')
+        # print(f'hi: {hi} lo: {lo} mid: {mid}')
         if nums[mid] <= target: lo = mid
         else: hi = mid - 1
     return lo
