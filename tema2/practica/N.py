@@ -1,10 +1,10 @@
 def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
-    n, x = map(int, input().split(" "))
+    n, x = map(int, input().split())
     memo = {}
     ans = []
     half = x // 2
     idx = 0
-    for i in input().split(" "):
+    for i in input().split():
         i = int(i)
         if i not in memo:
             memo.update({i:[idx+1]})
