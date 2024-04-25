@@ -1,4 +1,4 @@
-def TLE(): # Updated version from RTE to TLE with 25 out of 27 cases
+def TLE(): # Updated version from RTE to TLE with 26 out of 27 cases
     n, x = map(int, input().split())
     memo = {}
     ans = []
