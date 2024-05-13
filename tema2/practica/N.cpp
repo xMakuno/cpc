@@ -12,10 +12,13 @@ using namespace std;
 #define sec second
 #define all(v) v.begin(),v.end()
 #define pb push_back
+#define pf push_front
+#define pob pop_back
+#define pof pop_front
 #define endl '\n'
 #define printa(v) for(auto x: v) { cout << x << " ";}
 
-// WA 16/27 test cases (even though i think is the same algorithm compared to this code's counterpart in python)
+// WA 22/27 test cases (even though i think is the same algorithm compared to this code's counterpart in python)
 signed main(){
     unordered_map<int,vector<int>> memo;
     int n, x, t;
@@ -24,10 +27,9 @@ signed main(){
     bool answered = false;
     fo(n){
         cin >> t;
-        //cout << i << " " << t << endl;
-        if(memo.count(x-t) == 1) { memo.emplace(t, vector<int>(1,i+1)); }
+        if(memo.count(t) < 1) { memo.emplace(t, vector<int>(1,i+1));}
         else { memo[t].pb(i+1); }
-        if(half == t && t & 1 == 0){
+        if(half == t && ( t + t == x)){
             if(memo[t].size() > 1){
                 foj(0,memo[t].size()){
                     cout << memo[t][j] << " \n"[j == memo[t].size() - 1];
@@ -35,8 +37,8 @@ signed main(){
                 answered = true;
                 break;
             }
-        }else{ 
-            if(memo.count(x-t) == 1){
+        }else{
+            if(memo.count(x-t) >= 1){
                 cout << memo[x-t].front() << " " << i + 1 << "\n";
                 answered = true;
                 break;
