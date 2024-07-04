@@ -2,69 +2,26 @@
 using namespace std;
 
 typedef long long ll;
-
-struct person{
-    ll pos;
-    float p;
-    ll a,b;
-};
-
-bool posCheck(ll a, ll b){
-    if(a < b){
-        return true;
-    }else{
-        return false;
-    }
-}
-    /* 
-    ai/bi = left person
-    aj/bj = right person
-
-    left has bigger fraction -> lower prob -> false
-    left has smaller fraction -> higher prob -> true
-    equal -> check position
-    ai = aj
-    */
-
-
-bool personComp(person i, person j){
-    if(i.p < j.p){
-        return true;
-    }else if(i.p > j.p){
-        return false;
-    }
-    long long c = i.b*j.a;
-    long long d = j.b*i.a;
-    if(c < d){
-        return true;
-    }else if(c > d){
-        return false;
-    }else{
-        return posCheck(i.pos, j.pos);
-    }
-}
-void solve(){
-    int n, a, b;
-    cin >> n;
-    person t[n];
-    for(ll i=0; i < n; ++i){
-        cin >> a >> b;
-        t[i].pos = i+1; 
-        t[i].a = a;
-        t[i].b = b;
-        if(a != 0){
-            t[i].p = 1 / 1 + (b/a);
-        }else{
-            t[i].p = 0;
-        }
-    }
-    sort(t, t + n, personComp);
-    for(int i=0; i < n; ++i){
-        cout << t[i].pos << " \n"[i == n -1];
-    }
-}
+typedef pair<long double, ll> pdi;
 
 int main(){
-    solve();
+    int n;
+    ll a, b;
+    cin >> n;
+    vector<pdi> v(n);
+    for(ll i=0; i < n; ++i){
+        cin >> a >> b;
+        b += a; // B is now the denominator
+        ll d = gcd(a,b);
+        a /= d;
+        b /= d;
+        v[i].first = (long double) a/b;
+        v[i].second = -(i+1);
+    }
+    sort(v.rbegin(),v.rend());
+    for(int i=0; i < n; ++i){
+        cout << -v[i].second << " \n"[i == n-1];
+    }
+
     return 0;
 }
