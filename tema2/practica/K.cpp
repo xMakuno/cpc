@@ -4,12 +4,12 @@ using namespace std;
 typedef long long ll;
 
 struct person{
-    int pos;
+    ll pos;
     float p;
-    int a,b;
+    ll a,b;
 };
 
-bool posCheck(int a, int b){
+bool posCheck(ll a, ll b){
     if(a < b){
         return true;
     }else{
@@ -43,11 +43,11 @@ bool personComp(person i, person j){
         return posCheck(i.pos, j.pos);
     }
 }
-void solve(){ // WA 9/23
+void solve(){
     int n, a, b;
     cin >> n;
     person t[n];
-    for(int i=0; i < n; ++i){
+    for(ll i=0; i < n; ++i){
         cin >> a >> b;
         t[i].pos = i+1; 
         t[i].a = a;
