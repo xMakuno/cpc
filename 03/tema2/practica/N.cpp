@@ -1,54 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
+typedef pair<int, int> pii;
 
-#define ll long long
-#define fo(n) for(int i=0;i<n;i++)
-#define foi(m,n) for(int i=m;i<n;i++)
-#define foj(m,n) for(int j=m;j<n;j++)
-#define rev(n) for(int i=n-1;i>=0;i--)
-#define revj(n) for(int j=n-1;j>=0;j--)
-#define mp make_pair
-#define fi first
-#define sec second
-#define all(v) v.begin(),v.end()
-#define pb push_back
-#define pf push_front
-#define pob pop_back
-#define pof pop_front
-#define endl '\n'
-#define printa(v) for(auto x: v) { cout << x << " ";}
-
-// WA 22/27 test cases (even though i think is the same algorithm compared to this code's counterpart in python)
-signed main(){
-    unordered_map<int,vector<int>> memo;
-    int n, x, t;
+// 2 pointers + BinSearch
+int main(){
+    int n, x;
     cin >> n >> x;
-    int half = x/2;
-    bool answered = false;
-    fo(n){
-        cin >> t;
-        if(memo.count(t) < 1) { memo.emplace(t, vector<int>(1,i+1));}
-        else { memo[t].pb(i+1); }
-        if(half == t && ( t + t == x)){
-            if(memo[t].size() > 1){
-                foj(0,memo[t].size()){
-                    cout << memo[t][j] << " \n"[j == memo[t].size() - 1];
-                }
-                answered = true;
-                break;
-            }
+    vector<pii> v(n+1);
+    for(int i = 0; i < n; ++i){
+        cin >> v[i+1].first;
+        v[i+1].second = i+1;
+    }
+    sort(v.begin(),v.end());
+    int l = 1, r = n;
+    while(l < r){
+        ll sum = v[l].first + v[r].first;
+        if(sum == x){
+            cout << v[l].second << " " << v[r].second << '\n';
+            return 0;
+        }else if(sum < x){
+            l++; //sum is lower so we need a bigger num
         }else{
-            if(memo.count(x-t) >= 1){
-                cout << memo[x-t].front() << " " << i + 1 << "\n";
-                answered = true;
-                break;
-            }
-            
+            r--; // sum is higher so we need a lower num
         }
     }
-
-    if(!answered){
-        cout << "IMPOSSIBLE" << '\n';
-    }
+    cout << "IMPOSSIBLE\n";
     return 0;
 }
