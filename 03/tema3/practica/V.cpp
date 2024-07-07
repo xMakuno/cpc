@@ -5,10 +5,23 @@ typedef pair<int, int> pii;
 int main(){
     int n, x;
     cin >> n >> x;
-    vector<pii> v(1e9);
-    cout << v.size() << endl;
-    for(int i = 0; i < n; ++i){
-        
+    set<int> s;
+    int q; cin >> q;
+    while(q--){
+        int option;
+        cin >> option;
+        if(option == 1){
+            int k;  cin >> k;
+            s.insert(k);
+        }else{
+            int y;  cin >> y;
+            auto it = s.lower_bound(y);
+            if(it != s.end()){
+                cout << (*it) << '\n';
+            }else{
+                cout << "-1\n"; 
+            }
+        }
     }
     return 0;
 }
