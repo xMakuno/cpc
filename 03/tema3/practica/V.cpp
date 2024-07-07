@@ -3,23 +3,24 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 int main(){
-    int n, x;
-    cin >> n >> x;
-    set<int> s;
+    int n;
+    cin >> n;
+    map<int, int> mp;
     int q; cin >> q;
     while(q--){
         int option;
         cin >> option;
         if(option == 1){
             int k;  cin >> k;
-            s.insert(k);
+            mp.insert({k,-1});
         }else{
             int y;  cin >> y;
-            auto it = s.lower_bound(y);
-            if(it != s.end()){
-                cout << (*it) << '\n';
+            auto it = mp.lower_bound(y);
+            
+            if(it == mp.end()){
+                cout << "-1\n";
             }else{
-                cout << "-1\n"; 
+                cout << (*it).first << '\n'; 
             }
         }
     }
