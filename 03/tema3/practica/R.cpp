@@ -7,13 +7,13 @@ int main(){
 	for(int i = 0; i < n; ++i){
 		int temp;
 		cin >>  temp;
-		nums.push(-temp);
+		nums.push(temp);
 	}
-	int last = 0, curr = 1, count = 0, ans = 0;
+	nums.push(0);
+	int last = 0, curr, count = 0, ans = 0;
 	while(!nums.empty()){
-		curr = nums.top();
-		nums.pop();
-		cout << "\nLast: " << last;
+		curr = nums.top(); nums.pop();
+
 		if(last != curr){
 			if(count < last){
 				ans += count;
@@ -24,8 +24,9 @@ int main(){
 		}else{
 			count++;
 		}
-
+		last = curr;
 	}
+
 	cout << ans << '\n';
 	return 0;
 }
