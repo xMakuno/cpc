@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define all(x) x.begin(), x.end() 
 #define fo(n) for(int i=0;i<n;i++)
 #define foi(m,n) for(int i=m;i<n;i++)
 #define foj(m,n) for(int j=m;j<n;j++)
@@ -19,6 +20,12 @@ using namespace std;
 #define NO cout << "NO\n";
 #define newL cout << '\n';
 
+// Bitwise operations
+#define TEST(a, b) ((a) & (1LL << (b)))
+#define SET(a, b) ((a) | (1LL << (b)))
+#define CLEAR(a, b) ((a) & ~(1LL << (b)))
+#define FLIP(a, b) ((a) ^ (1LL << (b)))
+#define EP2(n) (n == (n&-n))
 // safe double operations and etc. Stole it from my buddy @arctan
 
 int isqrt(int n) {
