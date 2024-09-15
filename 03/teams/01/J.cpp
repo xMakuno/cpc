@@ -2,34 +2,35 @@
 using namespace std;
 typedef long long ll;
 int main(){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
     int T = 1;
     cin >> T;
     while(T--){
         int n;
         cin >> n;
-        int arr[n], S = 0 , A = 0;
+        int As[n], Bs[n], S = 0 , A = 0;
         for(int i = 0; i < n; ++i){
-            cin >> arr[i];
+            cin >> As[i];
         }
         for(int i = 0; i < n; ++i){
-            int temp;
-            cin >> temp;
-            if(temp == -1 && arr[i] == -1){
+            cin >> Bs[i];
+        }
+
+        for(int i = 0; i < n; ++i){
+            if(As[i] == -1 && Bs[i] == -1){
                 continue;
-            }else if(temp == -1 || arr[i] == -1){
-                if(temp == -1){
-                    A++;
-                }else{
-                    S++;
-                }
-            }else{
-                if(temp == arr[i]){
-                    continue;
-                }else if(temp < arr[i]){
-                    A++;
-                }else{
-                    S++;
-                }
+            }else if(As[i] != -1 && Bs[i] == -1){
+                S++;
+            }else if(As[i] == -1 && Bs[i] != -1){
+                A++;
+            }else if(As[i] == Bs[i]){
+                continue;
+            }else if(As[i] > Bs[i]){
+                A++;
+            }else if(As[i] < Bs[i]){
+                S++;
             }
         }
         if(A == S){
