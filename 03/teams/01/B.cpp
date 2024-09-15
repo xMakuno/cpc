@@ -5,11 +5,8 @@ typedef long long ll;
 void solve(){
     string name;
     cin >> name;
-    for(int i = 1; i < name.length()-1;++i){
-        if(name[i] == name[i-1] || name[i] == name[i+1]){
-            cout << "yes\n";
-            return;
-        }else if(name[i-1] == name[i+1]){
+    for(int i = 0; i < name.length()-1;++i){
+        if(name[i] == name[i+1] || name[i] == name[i+2]){
             cout << "yes\n";
             return;
         }
