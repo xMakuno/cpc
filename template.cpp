@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define all(x) x.begin(), x.end() 
 #define fo(n) for(int i=0;i<n;i++)
 #define foi(m,n) for(int i=m;i<n;i++)
 #define foj(m,n) for(int j=m;j<n;j++)
@@ -19,6 +18,10 @@ using namespace std;
 #define YES cout << "YES\n";
 #define NO cout << "NO\n";
 #define newL cout << '\n';
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+#define v(x) vector<x>
 
 // Bitwise operations
 #define TEST(a, b) ((a) & (1LL << (b)))
@@ -27,7 +30,6 @@ using namespace std;
 #define FLIP(a, b) ((a) ^ (1LL << (b)))
 #define EP2(n) (n == (n&-n))
 // safe double operations and etc. Stole it from my buddy @arctan
-
 int isqrt(int n) {
     int lo = 0, hi = n;
     while (lo <= hi) {
