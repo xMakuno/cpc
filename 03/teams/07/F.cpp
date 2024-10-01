@@ -14,22 +14,23 @@ int main(){
         if(alpha[i] == 0 ) continue;
         if(alpha[i] % 2 == 0){
             v_e.push_back(alpha[i]);
-            evens+=alpha[i];
         }else{
             v_o.push_back(alpha[i]);
-            odds+=alpha[i];
         }
     }
-    int ans = 0;
-    ans = max(ans, evens);
-    if(odds != 0){
-        ans = max(ans, (int) (evens + odds - v_o.size() + 1));
+    odds = v_o.size();
+    evens = v_e.size();
+    int ans = S.size();
+    while(ans != 1){
+        // cout << "length: " << ans << " odds: " << odds << " evens: " << evens << '\n';
+        if((ans % 2 == 0 && odds == 0) || (ans % 2 == 1 && odds == 1)){
+            cout << ans << '\n';
+            return 0;
+        }
+        ans--;
+        odds--;
+        // evens++;
     }
-    if(v_o.size() > 0){
-        sort(v_o.begin(),v_o.end());
-        ans = max(ans, evens + v_o[v_o.size()]);
-    }
-    // cout << evens << " " << odds << '\n';
     cout << ans << '\n';
     return 0;
 }
