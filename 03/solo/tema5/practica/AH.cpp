@@ -19,7 +19,7 @@ int main(){
         }
         bool good = true;
         for(int i = 0; i < m; ++i){
-            if(edges[i] != 2){
+            if(edges[i] > 2){
                 good = false;
                 break;
             }
