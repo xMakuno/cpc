@@ -14,6 +14,8 @@ void dfs(vector<bool> &visited, vector<vector<int>> &al, int u){
 }
 
 int main(){
+    cin.tie(0);
+    ios_base::sync_with_stdio(false);
     int n, m;
     cin >> n >> m;
     vector<bool> visited(n+1,false);
