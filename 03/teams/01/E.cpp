@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-//WA needs to be DSU
+//TLE; it can be solved with DSU but DFS is sufficient.
 
 void dfs(vector<bool> &visited, vector<vector<int>> &al, int u){
     visited[u] = true;
@@ -18,7 +18,7 @@ int main(){
     cin >> n >> m;
     vector<bool> visited(n+1,false);
     vector<vector<int>> al(n+1);
-    for(int i = 0; i < n; ++i){
+    for(int i = 0; i < m; ++i){
         int u, v;
         cin >> u >> v;
         al[u].push_back(v);
