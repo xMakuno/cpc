@@ -22,6 +22,7 @@
         "valarray": "cpp",
         "any": "cpp",
         "ostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "iosfwd": "cpp"
     }
 }
